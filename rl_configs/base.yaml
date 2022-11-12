@@ -1,0 +1,11 @@
+---
+seed: 42
+basedir: .outputs
+name: default
+group: ungrouped
+wandb_resume: False
+agent: dqn
+tests:
+- load: best
+  eval_prefix: None
+full_tests: []

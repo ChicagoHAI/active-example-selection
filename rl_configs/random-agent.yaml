@@ -1,0 +1,38 @@
+seed: 42
+basedir: ./rl_outputs/
+name: t=agnews_s=42
+group: search-offline
+wandb_resume: true
+agent: random
+tests: []
+agent_kwargs:
+  train_steps: 2000
+  save_every: 100
+env: few-shot
+env_kwargs:
+  named_features: true
+  model: gpt2-medium
+  model_kwargs:
+    batch_size: 8
+    calibrate: true
+  max_steps: 4
+  train_subset_samples: 100
+  eval_subset_samples: 80
+  action_repr:
+  - logits
+  - probs
+  - logits_stats
+  - probs_stats
+  - entropy
+  - perplexity
+  state_repr:
+  - curr_step
+  - max_steps
+  - last_label
+  - val_dist
+  - val_dist_entropy
+  - val_dist_stats
+  - perplexity
+  task: agnews
+  max_feasible_steps: 8
+output_dir: outputs/agnews-random

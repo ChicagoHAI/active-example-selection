@@ -1,0 +1,13 @@
+task: sst-2
+processor_kwargs:
+  mode: labeled
+shots:
+- 4
+seed: 42
+strategy: random
+basedir: ./outputs
+model_kwargs:
+  calibrate: true
+model: gpt2
+model_name: gpt2-medium
+output_dir: ./outputs/baseline-gpt2

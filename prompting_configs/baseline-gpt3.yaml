@@ -1,0 +1,13 @@
+task: sst-2
+processor_kwargs:
+  mode: "labeled-gpt3"
+shots:
+- 4
+seed: 42
+strategy: random
+basedir: ./outputs
+model: gpt3
+model_name: ada
+model_kwargs:
+  api_key_file: ./openai_api_key
+output_dir: ./outputs/baseline-gpt3

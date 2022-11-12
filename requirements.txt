@@ -1,0 +1,8 @@
+datasets==2.1.0
+jsonlines==3.0.0
+omegaconf==2.1.1
+openai==0.18.1
+torch>=1.10.2
+tqdm==4.62.3
+transformers==4.16.2
+wandb==0.13.5

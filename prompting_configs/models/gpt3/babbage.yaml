@@ -1,0 +1,6 @@
+model: gpt3
+model_name: babbage
+model_kwargs:
+  api_key_file: /home/yimingz0/.openai_api_key
+processor_kwargs:
+  mode: "labeled-gpt3"

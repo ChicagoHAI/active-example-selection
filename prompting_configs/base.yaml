@@ -1,0 +1,11 @@
+---
+task: sst-2
+processor_kwargs:
+  mode: "labeled"
+shots:
+  - 4
+seed: 42
+strategy: random
+basedir: ./outputs
+model_kwargs:
+  calibrate: False

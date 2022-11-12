@@ -1,0 +1,54 @@
+seed: 42
+agent: dqn
+tests: []
+full_tests:
+- env_kwargs:
+    dataset_mode: unlabeled
+  test_kwargs:
+    eval_prefix: unlabeled-best
+    load: best
+agent_kwargs:
+  train_steps: 8000
+  save_every: 800
+  eval_every: 800
+  batch_size: 16
+  max_grad_norm: 1.0
+  lr: 0.0003
+  weight_decay: 0.001
+  network_params:
+    task_count: 4
+    dropout: 0.25
+  val_rounds: 12
+  target_update_every: 400
+  optimization_steps_per_train_step: 16
+  replay_memory_size: 50000
+  offline_steps: 12000
+  cql_loss_weight: 0.2
+  load_transitions:
+  - outputs/amazon-random/ckpts/transitions_2000.ckpt
+  - outputs/sst-2-random/ckpts/transitions_2000.ckpt
+  - outputs/trec-random/ckpts/transitions_2000.ckpt
+env: multi-dataset
+env_kwargs:
+  model: gpt2-medium
+  model_kwargs:
+    batch_size: 8
+    calibrate: true
+  max_steps: 4
+  train_subset_samples: 100
+  eval_subset_samples: 100
+  max_feasible_steps: 8
+  action_repr:
+  - entropy
+  - probs_stats
+  - perplexity
+  state_repr:
+  - curr_step
+  - perplexity
+  train_env_configs:
+  - task: amazon
+  - task: sst-2
+  - task: trec
+  test_env_config:
+    task: agnews
+output_dir: outputs/agnews-transfer
