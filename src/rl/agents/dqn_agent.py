@@ -12,9 +12,9 @@ import torch.nn.functional as F
 from tqdm.auto import tqdm
 
 import wandb
-from rl import BaseEnvironment
 from rl.agents.network import initialize_network
 from rl.agents.replay import ReplayMemory, Transition
+from rl.environment import BaseEnvironment
 from rl.misc_utils import collate_summaries, parse_step_from_checkpoint, tailsum
 
 logger = logging.getLogger(__name__)

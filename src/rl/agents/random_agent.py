@@ -8,8 +8,8 @@ from typing import Optional
 import torch
 from tqdm.auto import tqdm
 
-from rl import FewShotEnvironment
 from rl.agents.replay import NamedTransition
+from rl.environment import FewShotEnvironment
 from rl.misc_utils import parse_step_from_checkpoint
 
 logger = logging.getLogger(__name__)
